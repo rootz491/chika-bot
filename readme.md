@@ -1,4 +1,4 @@
 # chika 
 
-A discord bot for Anime World discord server.
+A discord bot for **Animeland** discord server.
 
