@@ -18,7 +18,7 @@ module.exports = {
 
         const welcomeMsg = {
             title: `Welcome to ${member.guild.name}!`,
-            description: `**Welcome to Animeland!**\nKonnichiwa/Hii ***${member.user.username}***, \n\n**MUST DO** \n\nPlease read the rules in ${rulesChannel.toString()} channel and follow them. \n\nRead the ${instructionsChannel.toString()} channel for a  better understanding of this server. \n\n\n**FOR EXPLICIT CONTENT** \n\nAs channels **${hentaiChannel.toString()} & ${hentaiMangaChannel.toString()}** are solely based on explicit content, they are hidden by default for normal users. \n\nTo gain access to these channels, become an ***explicit*** member by just typing \`!explixit\` and @chika will grant you permission right away. :blush: \n\n***If you have any queries, feel free to ask in #general channel.***`,
+            description: `**Welcome to Animeland!**\nKonnichiwa/Hii ***${member.user.username}***, \n\n**MUST DO** \n\nPlease read the rules in ${rulesChannel.toString()} channel and follow them. \n\nRead the ${instructionsChannel.toString()} channel for a  better understanding of this server. \n\n\n**FOR EXPLICIT CONTENT** \n\nAs channels **${hentaiChannel.toString()} & ${hentaiMangaChannel.toString()}** are solely based on explicit content, they are hidden by default for normal users. \n\nTo gain access to these channels, become an ***explicit*** member by just typing \`!explicit\` and @chika will grant you permission right away. :blush: \n\n***If you have any queries, feel free to ask in #general channel.***`,
             thumbnail: member.user.displayAvatarURL({dynamic: true, size: 512}),
             color: 'RANDOM',
             footer: `${member.guild.name} | ${member.guild.memberCount} members`
