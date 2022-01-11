@@ -4,6 +4,8 @@ module.exports = {
     name: 'guildMemberAdd',
     once: false,
     execute(member) {
+        if (member.user.bot) return;
+
         const welcomeChannelID = '927569371675635824';
         const rulesChannelID = '927963366188781598';
         const instructionsChannelID = '928590243572113428';    
