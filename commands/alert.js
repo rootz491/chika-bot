@@ -42,14 +42,14 @@ module.exports = {
                     if (subscriber) {
                         //  if the user already subscribed to the category, then just return
                         if (subscriber.categories.includes(category)) {
-                            interaction.reply("You are already subscribed to this category!");
+                            interaction.reply({content: "You are already subscribed to this category!", ephemeral: true });
                         } 
                         //  if the user already has a subscriber, add the category to the subscriber
                         else {
                             // const subscriber = subscriber.categories.push(category);
                             subscriber.categories.push(category);
                             await subscriber.save();
-                            interaction.reply("You have subscribed to this category!");
+                            interaction.reply({content: "You have subscribed to this category!", ephemeral: true});
                         }
                     } 
                     // create new subscriber and add the category to the subscriber
@@ -59,7 +59,7 @@ module.exports = {
                             categories: [category]
                         });
                         await subscriber.save();
-                        interaction.reply(`You are now subscribed to ${category} alerts`);
+                        interaction.reply({content: `You are now subscribed to ${category} alerts`, ephemeral: true});
                     }
                 } else {
                     interaction.reply("Please specify a category!");
@@ -72,7 +72,7 @@ module.exports = {
                     if (subscriber) {
                         //  if the user haven't subscribed to this category, then just return
                         if (!subscriber.categories.includes(category)) {
-                            interaction.reply("lol, You are not even subscribed to this category!");
+                            interaction.reply({content: "lol, You are not even subscribed to this category!", ephemeral: true});
                         }
                         //  if the user already has a subscriber, remove the category from the subscriber
                         else {
@@ -82,23 +82,23 @@ module.exports = {
                             if (subscriber.categories.length === 0) {
                                 await Subscriber.deleteOne({ userId: user.id });
                             }
-                            interaction.reply(`You are now unsubscribed from ${category} alerts`);
+                            interaction.reply({content: `You are now unsubscribed from ${category} alerts`, ephemeral: true});
                         }
                     }
                     //  if the user is not subscriber, then just return
                     else {
-                        interaction.reply("You are not subscribed to any category!");
+                        interaction.reply({content: "You are not subscribed to any category!", ephemeral: true});
                     }
                 }
                 else {
-                    interaction.reply("Please specify a category!");
+                    interaction.reply({content: "Please specify a category!", ephemeral: true});
                 }
             }
             else if (interaction.options.getSubcommand() === "status") {
                 if (subscriber) {
-                    interaction.reply(`You are subscribed to the following categories: ***${subscriber.categories.join(", ")}***`);
+                    interaction.reply({content: `You are subscribed to the following categories: ***${subscriber.categories.join(", ")}***`, ephemeral: true});
                 } else {
-                    interaction.reply("You are not subscribed to any category!");
+                    interaction.reply({content: "You are not subscribed to any category!", ephemeral: true});
                 }
             }
         } catch (error) {
